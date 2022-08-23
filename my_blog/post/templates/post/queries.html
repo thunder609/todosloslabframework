@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultas</title>
+</head>
+<body>
+    <h3>
+        Buscando eleemtos que contienen yes
+        <ul>
+           {% for ele in  namefilter %}
+            <li>
+            {{ele.name}}
+            </li>
+            {% endfor %}
+        </ul>
+    </h3>
+    <h3>Buscando elemntos cuyo id es menor o gual 15</h3>
+    <ul>
+        {% for elem in filtereds2 %}
+        <li>
+            {{elem.email}}
+            {% endfor %}
+        </li>
+    
+    </ul>
+    <h3>Elementos ordenandos por email</h3>
+    <ul>
+        {% for or in orders %}
+        <li>{{or.email}}{{ or.name}}</li>
+        {% endfor %}
+    </ul>
+    <h2>Obetener los primeros apartir del 5 al 15 elementos</h2>
+    <ul>
+        {% for aut in offsets%}
+        <li>
+           {{aut.name}} ({{aut.email}})
+        </li>
+        {% endfor %}
+    </ul>
+    <h2>Obetener los primeros 10 elementos</h2>
+    <ul>
+        {% for au in limit%}
+        <li>
+           {{au.name}} ({{au.email}})
+        </li>
+        {% endfor %}
+    </ul>
+    <h3>Obteniendo un unico elemento (filtrado por id)</h3>
+    <p> {{ author.name }}</p>
+    <br>
+    <h3>Buscando autor donde emial=adriana71@example.net</h3>
+    <ul>{% for elem in filtered %}
+        <li>
+                      {{elem.name}}| {{elem.email}}
+        </li>
+        {% endfor %}
+    </ul>
+    <h1>Todos los Authores</h1>
+    <ul>
+        {% for author in authors %}
+        <li> {{author.name}} ({{author.email}})</li>
+        {% endfor %}
+    </ul>
+    <h3>Total de Autors:{{authors|length}}</h3>
+</body>
+</html>
